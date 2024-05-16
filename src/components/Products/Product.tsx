@@ -12,11 +12,10 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import { IProduct } from "mocks/products";
 import { ICategory } from "mocks/categories";
+import { longDateFormat, shortDateFormat } from "utils";
 export type ProductType = Omit<IProduct, "categories"> & {
   categories: ICategory[];
 };
-const shortDateFormat = "MM/DD/YYYY";
-const longDateFormat = "MM/DD/YYYY hh:mm a";
 type Props = {
   product: ProductType;
   onDelete: (id: number) => void;

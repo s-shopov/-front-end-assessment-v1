@@ -24,7 +24,8 @@
       "@/components/*": ["./components/*"],
       "@/gateways/*": ["./gateways/*"],
       "@/mocks/*": ["./mocks/*"],
-      "@/store/*": ["./store/*"]
+      "@/store/*": ["./store/*"],
+      "@/utils/*": ["./utils/*"]
     }
   },
   "include": ["src"]

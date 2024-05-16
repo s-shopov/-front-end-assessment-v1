@@ -12,6 +12,7 @@ import { getMultiSelected, repeat } from "../../../utils";
 import { isCategoriesValid, isNameValid } from "./validators";
 import { IProduct } from "mocks/products";
 import { ICategory } from "mocks/categories";
+import { RATING_THRESHOLD } from "@/store/features/productsSlice";
 
 type Props = {
   onSave: (product: IProduct) => void;
@@ -29,6 +30,7 @@ export const ProductForm: React.FC<Props> = ({
     handleSubmit,
     control,
     setValue,
+    getValues,
     formState: { errors },
   } = useForm<IProduct>({
     defaultValues: {
@@ -54,7 +56,7 @@ export const ProductForm: React.FC<Props> = ({
       setValue("itemsInStock", product.itemsInStock || 0);
       setValue("receiptDate", product.receiptDate || "");
       setValue("expirationDate", product.expirationDate || "");
-      setValue("featured", product.featured || false);
+      setValue("featured", !!product.featured || false);
     }
   }, [product, setValue]);
 
@@ -110,7 +112,17 @@ export const ProductForm: React.FC<Props> = ({
           name="rating"
           control={control}
           render={({ field }) => (
-            <Input type="select" {...field}>
+            <Input
+              type="select"
+              {...field}
+              onChange={(e) => {
+                setValue("rating", +e.target.value);
+                setValue(
+                  "featured",
+                  +e.target.value > RATING_THRESHOLD ? true : false
+                );
+              }}
+            >
               {repeat(11).map((v) => (
                 <option key={v} value={v}>
                   {v}
@@ -212,13 +224,16 @@ export const ProductForm: React.FC<Props> = ({
       <FormGroup check>
         <Label check>
           <Controller
-            name="itemsInStock"
+            name="featured"
             control={control}
             render={({ field }) => (
               <Input
                 {...register("featured")}
-                type="checkbox"
                 {...field}
+                value={field.value.toString()} // Convert boolean to string
+                type="checkbox"
+                disabled={getValues().rating < 9}
+                checked={!!field.value}
                 name="featured"
               />
             )}

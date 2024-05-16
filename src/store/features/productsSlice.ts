@@ -7,8 +7,9 @@ import {
 import { IProduct } from "../../mocks/products";
 import { productApi } from "../../gateways/ProductApi";
 import path from "path";
-import { generateId } from "../../utils";
+import { defaultExpDate, generateId } from "../../utils";
 
+export const RATING_THRESHOLD = 8;
 export type Loading = "loading" | "succeeded" | "failed";
 interface SliceState {
   state: Loading;
@@ -31,7 +32,7 @@ export const isFeatured = ({
 }: {
   rating: number;
   featured: boolean;
-}) => rating > 8 || featured;
+}) => rating > RATING_THRESHOLD || featured;
 
 const productsSlice = createSlice({
   name: "productsSlice",
@@ -78,7 +79,8 @@ const productsSlice = createSlice({
               featured: payload.featured ?? false,
               rating: payload.rating ?? 0,
             }),
-            createdAt: new Date().toDateString(), // TODO check this and unify
+            createdAt: new Date().toString(),
+            expirationDate: defaultExpDate(),
           },
         ]),
       };

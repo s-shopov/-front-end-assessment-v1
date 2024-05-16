@@ -16,7 +16,7 @@ const UpdateFormContainer: React.FC<Props> = ({ productId }) => {
   const categories = useAppSelector(getCategories);
   const history = useHistory();
   if (!product) {
-    history.push("/404"); // will redirect to * notFound
+    history.push("/");
     return null;
   }
 
