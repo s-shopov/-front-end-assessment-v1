@@ -14,3 +14,11 @@ commit #1 add typescript;
 - fix generateId to return number 
 
 #feat(paths): add typescript path aliases
+
+
+
+# Things to consider
+
+- add eslint
+- add pre commit hooks
+
