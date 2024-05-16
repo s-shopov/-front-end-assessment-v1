@@ -13,6 +13,7 @@ commit #1 add typescript;
 - fix router issues
 - fix generateId to return number 
 - remove lodash - not small dependency and chunk could be implemented only css side
+- add loader and listen to global loading state from redux
 
 
 #feat(paths): add typescript path aliases
@@ -23,4 +24,5 @@ commit #1 add typescript;
 
 - add eslint
 - add pre commit hooks
+- update NodeJs version and React to 18
 

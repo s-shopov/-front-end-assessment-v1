@@ -13,8 +13,8 @@ import { fetchProducts } from "./store/features/productsSlice";
 const history = createBrowserHistory();
 
 store.dispatch(fetchCategories());
-
 store.dispatch(fetchProducts());
+
 ReactDOM.render(
   <div className="content">
     <div className="container">

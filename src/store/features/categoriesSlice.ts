@@ -25,7 +25,11 @@ const categoriesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCategories.fulfilled, (state, action) => {
+      state.state = "succeeded";
       state.categories = action.payload;
+    });
+    builder.addCase(fetchCategories.pending, (state, action) => {
+      state.state = "loading";
     });
   },
 });

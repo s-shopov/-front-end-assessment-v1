@@ -9,8 +9,9 @@ import { productApi } from "../../gateways/ProductApi";
 import path from "path";
 import { generateId } from "../../utils";
 
+export type Loading = "loading" | "succeeded" | "failed";
 interface SliceState {
-  state: "loading" | "succeeded" | "failed";
+  state: Loading;
   products: IProduct[];
 }
 const initialState: SliceState = {
@@ -87,6 +88,9 @@ const productsSlice = createSlice({
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.products = [...action.payload];
       state.state = "succeeded";
+    });
+    builder.addCase(fetchProducts.pending, (state, action) => {
+      state.state = "loading";
     });
   },
 });

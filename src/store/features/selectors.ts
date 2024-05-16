@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import categoriesSlice from "./categoriesSlice";
 import { ICategory } from "../../mocks/categories";
+import { combineLoadingStates } from "utils";
 
 export const categoriesSelector = (state: RootState) => state.categories;
 export const productsSelector = (state: RootState) => state.products;
@@ -39,4 +40,11 @@ export const getProductsWithCategories = createSelector(
         (categoryId) => categoriesById[categoryId]
       ),
     }))
+);
+
+export const isLoading = createSelector(
+  [productsSelector, categoriesSelector],
+  (products, categories) => ({
+    loading: combineLoadingStates(products.state, categories.state),
+  })
 );
