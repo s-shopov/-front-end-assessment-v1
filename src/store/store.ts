@@ -13,9 +13,6 @@ export const store = configureStore({
   devTools: true,
   reducer,
 });
-// export const makeStore = () => {
-//   return configureStore({
-//     devTools: true,
 //     reducer,
 //     // middleware: () => console.log(1),
 //   });

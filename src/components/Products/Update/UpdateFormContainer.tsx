@@ -2,13 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { ProductForm } from "./ProductForm";
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import {
-  getCategories,
-  getProductById,
-} from "../../../store/features/selectors";
-import { updateProduct } from "../../../store/features/productsSlice";
+
 import { useHistory } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { getCategories, getProductById } from "@/store/features/selectors";
+import { updateProduct } from "@/store/features/productsSlice";
 
 type Props = {
   productId: number;
@@ -18,7 +16,7 @@ const UpdateFormContainer: React.FC<Props> = ({ productId }) => {
   const categories = useAppSelector(getCategories);
   const history = useHistory();
   if (!product) {
-    history.push("/404");
+    history.push("/404"); // will redirect to * notFound
     return null;
   }
 

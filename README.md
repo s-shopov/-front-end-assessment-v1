@@ -2,4 +2,15 @@
 
 #init initial commit - fix package.json install typescript 
 
-#1 add typescript and rewrite all files; add redux-toolkit and integrate all redux store through it; add react hook forms for form management.
+commit #1 add typescript;
+- add typescript and rewrite all files
+- add typecheck script
+- add redux-toolkit and integrate all redux store through it
+- add react hook forms for form management - ProductForm.
+- fix categories selector
+- fix edit form
+- add create form
+- fix router issues
+- fix generateId to return number 
+
+#feat(paths): add typescript path aliases

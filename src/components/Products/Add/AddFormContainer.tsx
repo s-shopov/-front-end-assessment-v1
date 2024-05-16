@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { ProductForm } from "../Update/ProductForm";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { getCategories } from "../../../store/features/selectors";
-import { addProduct } from "../../../store/features/productsSlice";
+import { addProduct } from "@/store/features/productsSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { getCategories } from "@/store/features/selectors";
 
 const AddFormContainer: React.FC = () => {
   const categories = useAppSelector(getCategories);

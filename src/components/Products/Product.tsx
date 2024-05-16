@@ -10,8 +10,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
-import { IProduct } from "../../mocks/products";
-import { ICategory } from "../../mocks/categories";
+import { IProduct } from "mocks/products";
+import { ICategory } from "mocks/categories";
 export type ProductType = Omit<IProduct, "categories"> & {
   categories: ICategory[];
 };

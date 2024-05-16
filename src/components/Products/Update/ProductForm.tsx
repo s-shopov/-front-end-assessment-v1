@@ -10,8 +10,8 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { getMultiSelected, repeat } from "../../../utils";
 import { isCategoriesValid, isNameValid } from "./validators";
-import { IProduct } from "../../../mocks/products";
-import { ICategory } from "../../../mocks/categories";
+import { IProduct } from "mocks/products";
+import { ICategory } from "mocks/categories";
 
 type Props = {
   onSave: (product: IProduct) => void;

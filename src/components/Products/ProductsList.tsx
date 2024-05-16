@@ -2,8 +2,6 @@ import React from "react";
 import Product, { ProductType } from "./Product";
 import { Container, Row, Col } from "reactstrap";
 import { chunk } from "lodash";
-import { IProduct } from "../../mocks/products";
-import { ICategory } from "../../mocks/categories";
 
 type ProductListProps = {
   products: ProductType[];
