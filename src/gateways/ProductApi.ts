@@ -1,7 +1,7 @@
-import products from "../mocks/products";
+import products, { IProduct } from "../mocks/products";
 
 class ProductApi {
-  getProducts() {
+  getProducts(): Promise<IProduct[]> {
     return new Promise((resolve) => {
       setTimeout(() => {
         return resolve(products);

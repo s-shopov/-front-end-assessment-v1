@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import { IProduct } from "mocks/products";
 import { ICategory } from "mocks/categories";
-import { longDateFormat, shortDateFormat } from "utils";
+import { longDateFormat, shortDateFormat } from "../../utils";
 export type ProductType = Omit<IProduct, "categories"> & {
   categories: ICategory[];
 };
@@ -40,8 +40,12 @@ const Product: React.FC<Props> = ({ product, onDelete }) => {
         </CardTitle>
         <CardText tag="div">
           <ListGroup>
-            <ListGroupItem>Brand: {product.brand}</ListGroupItem>
-            <ListGroupItem>Rating: {product.rating}</ListGroupItem>
+            <ListGroupItem data-testid={"brand"}>
+              Brand: {product.brand}
+            </ListGroupItem>
+            <ListGroupItem data-testid={"rating"}>
+              Rating: {product.rating}
+            </ListGroupItem>
             <ListGroupItem>
               Featured: {product.featured ? "Yes" : "No"}
             </ListGroupItem>
@@ -56,9 +60,15 @@ const Product: React.FC<Props> = ({ product, onDelete }) => {
                 ))}
               </ul>
             </ListGroupItem>
-            <ListGroupItem>Receipt Date: {receiptDate}</ListGroupItem>
-            <ListGroupItem>Expiration Date: {expirationDate}</ListGroupItem>
-            <ListGroupItem>Created At: {createdAt}</ListGroupItem>
+            <ListGroupItem data-testid={"receiptDate"}>
+              Receipt Date: {receiptDate}
+            </ListGroupItem>
+            <ListGroupItem data-testid={"expDate"}>
+              Expiration Date: {expirationDate}
+            </ListGroupItem>
+            <ListGroupItem data-testid={"createdAt"}>
+              Created At: {createdAt}
+            </ListGroupItem>
           </ListGroup>
         </CardText>
       </CardBody>
