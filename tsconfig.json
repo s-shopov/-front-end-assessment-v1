@@ -26,5 +26,6 @@
       "@/mocks/*": ["./mocks/*"],
       "@/store/*": ["./store/*"]
     }
-  }
+  },
+  "include": ["src"]
 }
