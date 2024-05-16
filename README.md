@@ -12,6 +12,8 @@ commit #1 add typescript;
 - add create form
 - fix router issues
 - fix generateId to return number 
+- remove lodash - not small dependency and chunk could be implemented only css side
+
 
 #feat(paths): add typescript path aliases
 
